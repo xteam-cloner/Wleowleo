@@ -7,7 +7,7 @@ from pyrogram.types import (
     Message,
 )
 
-from config import BANNED_USERS, MUSIC_BOT_NAME, OWNER_ID
+from config import BANNED_USERS, OWNER_ID
 from AnonXMusic import app
 from AnonXMusic.utils.database import (
     add_nonadmin_chat,
