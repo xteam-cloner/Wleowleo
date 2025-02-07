@@ -2,7 +2,8 @@ import os
 from datetime import timedelta
 
 import wget
-from pyrogram import Client, Message
+from pyrogram import Client
+from pyrogram.types import Message
 from yt_dlp import YoutubeDL
 from youtubesearchpython import VideosSearch
 from AnonXMusic import app
