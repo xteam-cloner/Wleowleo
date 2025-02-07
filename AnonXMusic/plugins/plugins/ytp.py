@@ -28,11 +28,11 @@ async def vsong_cmd(client, message):
         "format": "bestvideo+bestaudio",
         "outtmpl": "%(title)s.%(ext)s",
         "merge_output_format": "mp4",
-        "cookiefile": "storage/cookies.txt",
+        "cookiefile": "cookies.txt",
     }
 
     try:
-        await infomsg.edit("<b>📥 Mengunduh video...</b>")
+        await infomsg.edit("<b> Mengunduh video...</b>")
         with YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=True)
             file_name = ydl.prepare_filename(info_dict)
@@ -42,7 +42,7 @@ async def vsong_cmd(client, message):
             channel = info_dict.get("uploader", "Tidak diketahui")
             thumb = info_dict.get("thumbnail", None)
     except Exception as error:
-        return await infomsg.edit(f"<b>📥 Mengunduh video...\n\n{error}</b>")
+        return await infomsg.edit(f"<b> Mengunduh video...\n\n{error}</b>")
 
     thumbnail_path = None
     try:
@@ -56,13 +56,13 @@ async def vsong_cmd(client, message):
             duration=duration,
             supports_streaming=True,
             caption=(
-                f"<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {title}</b>\n\n"
+                <blockquote>f"<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {title}</b>\n\n"
                 f"<b>🏷 ɴᴀᴍᴀ:</b> {title}\n"
                 f"<b>🧭 ᴅᴜʀᴀsɪ:</b> {timedelta(seconds=duration)}\n"
                 f"<b>👀 ᴅɪʟɪʜᴀᴛ:</b> {views:,}\n"
                 f"<b>📢 ᴄʜᴀɴɴᴇʟ:</b> {channel}\n"
                 f"<b>🔗 ᴛᴀᴜᴛᴀɴ:</b> <a href='{link}'>ʏᴏᴜᴛᴜʙᴇ</a>\n\n"
-                f"<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {channel}"
+                f"<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {channel}"</blockquote>
             ),
             reply_to_message_id=message.id,
         )
@@ -98,11 +98,11 @@ async def song_cmd(client, message):
                 "preferredquality": "192",
             }
         ],
-        "cookiefile": "storage/cookies.txt",
+        "cookiefile": "cookies.txt",
     }
 
     try:
-        await infomsg.edit("<b>📥 Mengunduh audio...</b>")
+        await infomsg.edit("<b> Mengunduh audio...</b>")
         with YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=True)
             file_name = ydl.prepare_filename(info_dict).replace(".webm", ".mp3")
@@ -112,7 +112,7 @@ async def song_cmd(client, message):
             channel = info_dict.get("uploader", "Tidak diketahui")
             thumb = info_dict.get("thumbnail", None)
     except Exception as error:
-        return await infomsg.edit(f"<b>📥 Mengunduh audio...\n\n{error}</b>")
+        return await infomsg.edit(f"<blockquote><b>Mengunduh audio...\n\n{error}</b></blockquote>")
 
     thumbnail_path = None
     try:
