@@ -8,17 +8,17 @@ from config import LOGGER_ID
 async def play_logs(message, streamtype):
     if await is_on_off(2):
         logger_text = f"""
-<blockquote>{app.mention} ᴘʟᴀʏ ʟᴏɢ</b>
+<blockquote>{app.mention} ᴘʟᴀʏ ʟᴏɢ</blockquote>
 
-<b>ᴄʜᴀᴛ ɪᴅ :</b> <code>{message.chat.id}</code>
+<blockquote><b>ᴄʜᴀᴛ ɪᴅ :</b> <code>{message.chat.id}</code>
 <b>ᴄʜᴀᴛ ɴᴀᴍᴇ :</b> {message.chat.title}
-<b>ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.chat.username}
+<b>ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.chat.username}</blockquote>
 
-<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>
+<blockquote><b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>
 <b>ɴᴀᴍᴇ :</b> {message.from_user.mention}
-<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}
+<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}</blockquote>
 
-<b>ǫᴜᴇʀʏ :</b> {message.text.split(None, 1)[1]}
+<blockquote><b>ǫᴜᴇʀʏ :</b> {message.text.split(None, 1)[1]}
 <b>sᴛʀᴇᴀᴍᴛʏᴘᴇ :</b> {streamtype}</blockquote>"""
         if message.chat.id != LOGGER_ID:
             try:
