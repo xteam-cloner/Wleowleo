@@ -56,13 +56,13 @@ async def vsong_cmd(client, message):
             duration=duration,
             supports_streaming=True,
             caption=(
-                <blockquote>f"<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {title}</b>\n\n"
+                f"<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {title}</b>\n\n"
                 f"<b>🏷 ɴᴀᴍᴀ:</b> {title}\n"
                 f"<b>🧭 ᴅᴜʀᴀsɪ:</b> {timedelta(seconds=duration)}\n"
                 f"<b>👀 ᴅɪʟɪʜᴀᴛ:</b> {views:,}\n"
                 f"<b>📢 ᴄʜᴀɴɴᴇʟ:</b> {channel}\n"
                 f"<b>🔗 ᴛᴀᴜᴛᴀɴ:</b> <a href='{link}'>ʏᴏᴜᴛᴜʙᴇ</a>\n\n"
-                f"<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {channel}"</blockquote>
+                f"<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {channel}"
             ),
             reply_to_message_id=message.id,
         )
