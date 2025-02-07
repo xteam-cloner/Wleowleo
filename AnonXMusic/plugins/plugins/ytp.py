@@ -2,10 +2,13 @@ import os
 from datetime import timedelta
 
 import wget
-
+from pyrogram import Client, Message
 from yt_dlp import YoutubeDL
 from youtubesearchpython import VideosSearch
+from AnonXMusic import app
 
+
+@app.on_message(filters.command(["vsong"]))
 async def vsong_cmd(client, message):
     """Perintah untuk mengunduh dan mengirimkan video YouTube."""
     if len(message.command) < 2:
@@ -68,6 +71,8 @@ async def vsong_cmd(client, message):
             os.remove(file_name)
     await infomsg.delete()
 
+
+@app.on_message(filters.command(["song"]))
 async def song_cmd(client, message):
     """Perintah untuk mengunduh dan mengirimkan audio YouTube."""
     if len(message.command) < 2:
