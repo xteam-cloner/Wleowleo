@@ -32,7 +32,7 @@ async def start_pm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            await message.reply_sticker("AQAAUp1np3UYU/2roiskkgdIStS9tuzigw==")
+            await message.reply_sticker("CAACAgUAAxkBAAEWMgpnp3iqXrGt1Czfr5a4apv6_i6AQQACMhAAAoUPwVYE9vnN8iSdazYE")
             await message.delete()
             return await message.reply_video(
                 video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
@@ -86,7 +86,7 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
-        await message.reply_sticker("AQAAUp1np3UYU/2roiskkgdIStS9tuzigw==")
+        await message.reply_sticker("CAACAgUAAxkBAAEWMgpnp3iqXrGt1Czfr5a4apv6_i6AQQACMhAAAoUPwVYE9vnN8iSdazYE")
         await message.delete()
         await message.reply_video(
             video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
