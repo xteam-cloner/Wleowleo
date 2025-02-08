@@ -20,6 +20,7 @@ ntgcalls==1.1.2
 gitpython
 pykeyboard
 python-dotenv
+python-arq==6.0.7
 pyyaml==6.0.1
 tgcrypto
 telegraph==2.2.0
