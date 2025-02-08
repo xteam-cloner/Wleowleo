@@ -19,7 +19,7 @@ from pyrogram.types import (
     Message,
 )
 from AnonXMusic.utils import close_markup
-from config import BANNED_USERS, SERVER_PLAYLIST_LIMIT
+from config import BANNED_USERS, PLAYLIST_FETCH_LIMIT
 from AnonXMusic import Carbon, app
 from AnonXMusic.utils.decorators.language import language, languageCB
 from AnonXMusic.utils.inline.playlist import (
