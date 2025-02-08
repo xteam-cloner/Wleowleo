@@ -22,7 +22,7 @@ from AnonXMusic.utils import close_markup
 from config import BANNED_USERS, PLAYLIST_FETCH_LIMIT
 from AnonXMusic import Carbon, app
 from AnonXMusic.utils.decorators.language import language, languageCB
-from AnonXMusic.utils.inline.playlist import (
+from AnonXMusic.utils.playlist import (
     botplaylist_markup,
     get_playlist_markup,
     warning_markup,
