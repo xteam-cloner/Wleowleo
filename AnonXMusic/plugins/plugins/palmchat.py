@@ -24,7 +24,7 @@ async def get_palm_response(api_params):
 
 
 # Command handler for /palm
-@app.on_message(filters.text)
+@app.on_message(filters.command(["ask"]))
 async def palm_chatbot(client, message):
     if not message.text.startswith("Xteam"):
         return
