@@ -14,6 +14,13 @@ def get_command(value: str) -> List:
 def get_string(lang: str):
     return languages[lang]
 
+for filename in os.listdir(r"./strings"):
+    if filename.endswith(".yml"):
+        language_name = filename[:-4]
+        commands[language_name] = yaml.safe_load(
+            open(r"./strings/" + filename, encoding="utf8")
+        )
+
 
 for filename in os.listdir(r"./strings/langs/"):
     if "en" not in languages:
