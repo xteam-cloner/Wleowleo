@@ -644,3 +644,38 @@ async def remove_banned_user(user_id: int):
     if not is_gbanned:
         return
     return await blockeddb.delete_one({"user_id": user_id})
+
+# Top User DB
+
+
+async def get_userss(chat_id: int) -> Dict[str, int]:
+    ids = await userdb.find_one({"chat_id": chat_id})
+    if not ids:
+        return {}
+    return ids["vidid"]
+
+
+async def get_user_top(chat_id: int, name: str) -> Union[bool, dict]:
+    ids = await get_userss(chat_id)
+    if name in ids:
+        return ids[name]
+
+
+async def update_user_top(chat_id: int, name: str, vidid: dict):
+    ids = await get_userss(chat_id)
+    ids[name] = vidid
+    await userdb.update_one({"chat_id": chat_id}, {"$set": {"vidid": ids}}, upsert=True)
+
+
+async def get_topp_users() -> dict:
+    results = {}
+    async for chat in userdb.find({"chat_id": {"$gt": 0}}):
+        user_id = chat["chat_id"]
+        total = 0
+        for i in chat["vidid"]:
+            counts_ = chat["vidid"][i]["spot"]
+            if counts_ > 0:
+                total += counts_
+        results[user_id] = total
+    return results
+    
