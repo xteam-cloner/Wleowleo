@@ -17,10 +17,10 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 import config
 from config import BANNED_USERS, START_IMG_URL
 from strings import get_command, get_string
-from VIPMUSIC import HELPABLE, app
-from VIPMUSIC.utils.database import get_lang, is_commanddelete_on
-from VIPMUSIC.utils.decorators.language import LanguageStart
-from VIPMUSIC.utils.inline.help import private_help_panel
+from AnonXMusic import HELPABLE, app
+from AnonXMusic.utils.database import get_lang, is_commanddelete_on
+from AnonXMusic.utils.decorators.language import LanguageStart
+from AnonXMusic.utils.inline.help import private_help_panel
 
 ### Command
 HELP_COMMAND = get_command("HELP_COMMAND")
