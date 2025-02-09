@@ -27,7 +27,7 @@ from AnonXMusic import HELPABLE, Telegram, YouTube, app
 from AnonXMusic.misc import SUDOERS, _boot_
 from AnonXMusic.plugins.play.playlist import del_plist_msg
 from AnonXMusic.plugins.sudo.sudoers import sudoers_list
-from AnonXMusic.utils.database import (
+from AnonXMusic.utils import (
     add_served_chat,
     add_served_user,
     get_assistant,
