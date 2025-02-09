@@ -259,8 +259,8 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 
 from config import BANNED_USERS
 from strings import helpers
-from VIPMUSIC import app
-from VIPMUSIC.utils.decorators.language import languageCB
+from AnonXMusic import app
+from AnonXMusic.utils.decorators.language import languageCB
 
 
 @app.on_callback_query(filters.regex("music_callback") & ~BANNED_USERS)
