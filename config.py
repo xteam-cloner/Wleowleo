@@ -77,7 +77,10 @@ lyrical = {}
 votemode = {}
 autoclean = []
 confirmer = {}
-
+TEMP_DB_FOLDER = "tempdb"
+YTDOWNLOADER = 1
+LOG = 2
+LOG_FILE_NAME = "VIPlogs.txt"
 
 START_IMG_URL = getenv(
     "START_IMG_URL", "https://telegra.ph/file/8d7b534e34e13316a7dd2.jpg"
