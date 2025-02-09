@@ -708,4 +708,82 @@ async def remove_private_chat(chat_id: int):
         return
     return await privatedb.delete_one({"chat_id": chat_id})
 
+# language
+async def get_lang(chat_id: int) -> str:
+    mode = langm.get(chat_id)
+    if not mode:
+        lang = await langdb.find_one({"chat_id": chat_id})
+        if not lang:
+            langm[chat_id] = "en"
+            return "en"
+        langm[chat_id] = lang["lang"]
+        return lang["lang"]
+    return mode
+
+# Delete command mode
+
+# Define file paths
+CLEANMODE_DB = os.path.join(config.TEMP_DB_FOLDER, "cleanmode.json")
+COMMAND_DB = os.path.join(config.TEMP_DB_FOLDER, "command.json")
+
+
+def load_cleanmode():
+    if os.path.exists(CLEANMODE_DB):
+        with open(CLEANMODE_DB, "r") as file:
+            return json.load(file)
+    return []
+
+
+def load_command():
+    if os.path.exists(COMMAND_DB):
+        with open(COMMAND_DB, "r") as file:
+            return json.load(file)
+    return []
+
+
+def save_cleanmode():
+    with open(CLEANMODE_DB, "w") as file:
+        json.dump(cleanmode, file)
+
+
+def save_command():
+    with open(COMMAND_DB, "w") as file:
+        json.dump(command, file)
+
+
+cleanmode = load_cleanmode()
+command = load_command()
+
+
+async def is_cleanmode_on(chat_id: int) -> bool:
+    return chat_id not in cleanmode
+
+
+async def cleanmode_off(chat_id: int):
+    if chat_id not in cleanmode:
+        cleanmode.append(chat_id)
+        save_cleanmode()
+
+
+async def cleanmode_on(chat_id: int):
+    if chat_id in cleanmode:
+        cleanmode.remove(chat_id)
+        save_cleanmode()
+
+
+async def is_commanddelete_on(chat_id: int) -> bool:
+    return chat_id not in command
+
+
+async def commanddelete_off(chat_id: int):
+    if chat_id not in command:
+        command.append(chat_id)
+        save_command()
+
+
+async def commanddelete_on(chat_id: int):
+    if chat_id in command:
+        command.remove(chat_id)
+        save_command()
+
 
