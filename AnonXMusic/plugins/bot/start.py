@@ -32,8 +32,9 @@ async def start_pm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-        name = await message.reply_sticker("CAACAgUAAxkBAAEWMgpnp3iqXrGt1Czfr5a4apv6_i6AQQACMhAAAoUPwVYE9vnN8iSdazYE")
-         await name.delete()   
+        await message.reply_sticker("CAACAgUAAxkBAAEWMgpnp3iqXrGt1Czfr5a4apv6_i6AQQACMhAAAoUPwVYE9vnN8iSdazYE")
+         await message.delete()
+        await asyncio.sleep(0.3)
         return await message.reply_video(
                 video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
@@ -86,8 +87,9 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
-        name = await message.reply_sticker("CAACAgUAAxkBAAEWMgpnp3iqXrGt1Czfr5a4apv6_i6AQQACMhAAAoUPwVYE9vnN8iSdazYE")
-        await name.delete()  
+        await message.reply_sticker("CAACAgUAAxkBAAEWMgpnp3iqXrGt1Czfr5a4apv6_i6AQQACMhAAAoUPwVYE9vnN8iSdazYE")
+        await message.delete()
+        await asyncio.sleep(0.3)
         await message.reply_video(
             video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
             caption=_["start_2"].format(message.from_user.mention, app.mention),
