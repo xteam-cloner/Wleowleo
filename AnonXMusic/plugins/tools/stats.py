@@ -44,11 +44,11 @@ async def home_stats(client, CallbackQuery, _):
 @languageCB
 async def overall_stats(client, CallbackQuery, _):
     await CallbackQuery.answer()
-    upl = back_stats_buttons(_)
-    try:
-        await CallbackQuery.answer()
-    except:
-        pass
+    #upl = back_stats_buttons(_)
+    #try:
+        #await CallbackQuery.answer()
+    #except:
+        #pass
     await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
