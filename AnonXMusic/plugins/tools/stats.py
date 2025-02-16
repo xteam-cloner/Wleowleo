@@ -76,13 +76,11 @@ async def overall_stats(client, CallbackQuery, _):
 @languageCB
 async def bot_stats(client, CallbackQuery, _):
     if CallbackQuery.from_user.id not in SUDOERS:
-        return await CallbackQuery.answer(_["gstats_4"], show_alert=True)
-    upl = back_stats_buttons(_)
-    try:
-        await CallbackQuery.answer()
-    except:
-        pass
-    await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
+        return await CallbackQuery.answer(
+            _["gstats_4"], 
+            show_alert=True,
+        )
+        
     p_core = psutil.cpu_count(logical=False)
     t_core = psutil.cpu_count(logical=True)
     ram = str(round(psutil.virtual_memory().total / (1024.0**3))) + " ɢʙ"
@@ -103,6 +101,7 @@ async def bot_stats(client, CallbackQuery, _):
     storage = call["storageSize"] / 1024
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
+    
     text = _["gstats_5"].format(
         app.mention,
         len(ALL_MODULES),
@@ -126,10 +125,5 @@ async def bot_stats(client, CallbackQuery, _):
         call["collections"],
         call["objects"],
     )
-    med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
-    try:
-        await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
-    except MessageIdInvalid:
-        await CallbackQuery.message.reply_photo(
-            photo=config.STATS_IMG_URL, caption=text, reply_markup=upl
-        )
+    
+await CallbackQuery.answer(text, show_alert=True)
