@@ -15,7 +15,7 @@ from AnonXMusic.core.call import Anony
 from AnonXMusic.utils import bot_sys_stats
 from AnonXMusic.utils.decorators.language import language
 from AnonXMusic.utils.inline import supp_markup
-from config import BANNED_USERS, PING_IMG_URL, OWNER_ID
+from config import BANNED_USERS, PING_IMG_URL, OWNER_ID, SUPPORT_CHAT, BOT_USERNAME
 
 
 @app.on_message(filters.command(["ping", "alive"]) & ~BANNED_USERS)
@@ -103,7 +103,7 @@ async def restart(client, m: Message):
     owner=await app.get_users(OWNER_ID)
     await m.reply_photo(
         PING_IMG_URL,
-        caption=f"""**ʜᴇʏ, ɪ ᴀᴍ 『[{BOT_NAME}](f"t.me/{BOT_USERNAME}")』**
+        caption=f"""**ʜᴇʏ, ɪ ᴀᴍ 『[{app.mention}](f"t.me/{BOT_USERNAME}")』**
    ━━━━━━━━━━━━━━━━━━━
   » **ᴍʏ ᴏᴡɴᴇʀ :** {owner.mention()}
   
