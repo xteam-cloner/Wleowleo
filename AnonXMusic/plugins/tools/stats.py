@@ -36,11 +36,11 @@ async def stats_global(client, message: Message, _):
 
 @app.on_callback_query(filters.regex(PING_CALLBACK))
 async def overall_stats(client, callback_query: CallbackQuery):
-    await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
+    await CallbackQuery.edit_message_text(["gstats_1"].format(app.mention))
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
     
-    text = _["gstats_3"].format(
+    text = ["gstats_3"].format(
         app.mention,
         len(assistants),
         len(BANNED_USERS),
@@ -56,7 +56,7 @@ async def overall_stats(client, callback_query: CallbackQuery):
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
         await CallbackQuery.message.reply_photo(
-            photo=config.STATS_IMG_URL, caption=text,   reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍 Check Ping", callback_data=PING_CALLBACK)]]
+            photo=config.STATS_IMG_URL, caption=text, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍 Check Ping", callback_data=PING_CALLBACK)]]
         ),
         )
 
@@ -64,7 +64,7 @@ async def overall_stats(client, callback_query: CallbackQuery):
 @app.on_callback_query()
 async def callback_query(client, callback_query):
     if callback_query.data == "bot_stats_sudo":
-        await callback_query.message.reply(_["gstats_1"].format(app.mention))
+        await callback_query.message.reply(["gstats_1"].format(app.mention))
     p_core = psutil.cpu_count(logical=False)
     t_core = psutil.cpu_count(logical=True)
     ram = str(round(psutil.virtual_memory().total / (1024.0**3))) + " ɢʙ"
