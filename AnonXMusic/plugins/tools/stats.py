@@ -72,7 +72,7 @@ async def overall_stats(client, CallbackQuery, _):
     await CallbackQuery.answer(text, show_alert=True)
 
 
-@app.on_callback_query(filters.regex("bot_stats_sudo"))
+"""@app.on_callback_query(filters.regex("bot_stats_sudo"))
 @languageCB
 async def bot_stats(client, CallbackQuery, _):
     if CallbackQuery.from_user.id not in SUDOERS and CallbackQuery.from_user.id != OWNER_ID:
@@ -103,3 +103,4 @@ async def bot_stats(client, CallbackQuery, _):
     except MessageIdInvalid:
         await CallbackQuery.message.reply_photo(
             photo=config.STATS_IMG_URL, caption=text)
+"""
