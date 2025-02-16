@@ -9,7 +9,7 @@ from telegram import __version__ as lver
 from telethon import __version__ as tver
 from pyrogram import filters
 from pyrogram.types import Message
-
+import config
 from AnonXMusic import app
 from AnonXMusic.core.call import Anony
 from AnonXMusic.utils import bot_sys_stats
@@ -35,7 +35,7 @@ async def ping_com(client, message: Message, _):
     )
 
 
-from MukeshRobot.modules.no_sql import add_served_chat,save_id
+from from AnonXMusic.utils.database import add_served_chat,add_served_user
 #from MukeshRobot import SUPPORT_CHAT, pbot,BOT_USERNAME, OWNER_ID,BOT_NAME,START_IMG
 
 async def member_permissions(chat_id: int, user_id: int):
@@ -122,7 +122,7 @@ async def restart(client, m: Message):
 async def save_statss(_, m):
     try:
         if m.chat.type == ChatType.PRIVATE:
-            save_id(m.from_user.id)
+            add_served_user(m.from_user.id)
         elif m.chat.type==ChatType.SUPERGROUP:
             add_served_chat(m.chat.id)
         else:
