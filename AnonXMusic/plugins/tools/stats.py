@@ -119,7 +119,7 @@ async def bot_stats(client, CallbackQuery, _):
         call["collections"],
         call["objects"],
     )
-  med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
+        await CallbackQuery.answer(text, show_alert=True)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
