@@ -127,4 +127,3 @@ async def bot_stats(client, CallbackQuery, _):
             photo=config.STATS_IMG_URL, caption=text, reply_markup=upl
         )
         
-await CallbackQuery.answer(text, show_alert=True)
