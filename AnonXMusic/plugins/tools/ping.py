@@ -71,7 +71,7 @@ PHOTO = [
     "https://telegra.ph/file/bdfd86195221e979e6b20.jpg",
 ]
 
-Mukesh = [
+Xteam = [
     [
         InlineKeyboardButton(text="ɴᴏᴏʙ", user_id=OWNER_ID),
         InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
@@ -90,11 +90,11 @@ Mukesh = [
 async def restart(client, m: Message):
     await m.delete()
     accha = await m.reply("⚡")
-    await asyncio.sleep(0.2)
+    await asyncio.sleep(1)
     await accha.edit("ᴅɪɴɢ ᴅᴏɴɢ ꨄ︎ ᴀʟɪᴠɪɴɢ..")
 
     await accha.delete()
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.5)
     
     umm = await m.reply_sticker(
         "CAACAgUAAxkDAAJHbmLuy2NEfrfh6lZSohacEGrVjd5wAAIOBAACl42QVKnra4sdzC_uKQQ"
@@ -103,19 +103,19 @@ async def restart(client, m: Message):
     owner=await app.get_users(OWNER_ID)
     await m.reply_photo(
         PING_IMG_URL,
-        caption=f"""**ʜᴇʏ, ɪ ᴀᴍ 『[{app.mention}](f"t.me/{BOT_USERNAME}")』**
+        caption=f"""ʜᴇʏ, ɪ ᴀᴍ {app.mention}
    ━━━━━━━━━━━━━━━━━━━
-  » **ᴍʏ ᴏᴡɴᴇʀ :** {owner.mention()}
+  » ᴍʏ ᴏᴡɴᴇʀ : {owner.mention()}
   
-  » **ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{lver}`
+  » ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ : {lver}
   
-  » **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{tver}`
+  » ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ : {tver}
   
-  » **ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pver}`
+  » ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ : {pver}
   
-  » **ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{pyver()}`
+  » ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ : {pyver()}
    ━━━━━━━━━━━━━━━━━━━""",
-        reply_markup=InlineKeyboardMarkup(Mukesh)
+        reply_markup=InlineKeyboardMarkup(Xteam)
     )
 
 @app.on_message(group=1)
