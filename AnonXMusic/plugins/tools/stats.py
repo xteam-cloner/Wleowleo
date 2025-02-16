@@ -20,36 +20,26 @@ from AnonXMusic.utils.decorators.language import language, languageCB
 from AnonXMusic.utils.inline.stats import back_stats_buttons, stats_buttons
 from config import BANNED_USERS
 
+# Callback data
+PING_CALLBACK = "ping_dialog"
 
 @app.on_message(filters.command(["stats", "gstats"]) & filters.group & ~BANNED_USERS)
 @language
 async def stats_global(client, message: Message, _):
-    upl = stats_buttons(_, True if message.from_user.id in SUDOERS else False)
-    await message.reply_photo(
+    response = await message.reply_photo(
         photo=config.STATS_IMG_URL,
         caption=_["gstats_2"].format(app.mention),
-        reply_markup=upl,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔍 Check Ping", callback_data=PING_CALLBACK)]]
+        ),
     )
 
-
-@app.on_callback_query(filters.regex("stats_back") & ~BANNED_USERS)
-@languageCB
-async def home_stats(client, CallbackQuery, _):
-    upl = stats_buttons(_, True if CallbackQuery.from_user.id in SUDOERS else False)
-    await CallbackQuery.edit_message_text(
-        text=_["gstats_2"].format(app.mention),
-        reply_markup=upl,
-    )
-
-
-@app.on_callback_query()
-async def callback_query(client, callback_query):
-    if callback_query.data == "TopOverall":
-        await callback_query.message.edit(_["gstats_1"].format(app.mention))
-    
+@app.on_callback_query(filters.regex(PING_CALLBACK))
+async def overall_stats(client, callback_query: CallbackQuery):
+    await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
-
+    
     text = _["gstats_3"].format(
         app.mention,
         len(assistants),
@@ -61,15 +51,14 @@ async def callback_query(client, callback_query):
         config.AUTO_LEAVING_ASSISTANT,
         config.DURATION_LIMIT_MIN,
     )
-
     med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
-
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
         await CallbackQuery.message.reply_photo(
-            photo=config.STATS_IMG_URL, caption=text, reply_markup=upl
-    )
+            photo=config.STATS_IMG_URL, caption=text,   reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍 Check Ping", callback_data=PING_CALLBACK)]]
+        ),
+        )
 
 
 @app.on_callback_query()
