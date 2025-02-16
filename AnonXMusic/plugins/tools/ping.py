@@ -74,7 +74,7 @@ PHOTO = [
 Xteam = [
     [
         InlineKeyboardButton(text="ɴᴏᴏʙ", user_id=OWNER_ID),
-        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/xteam_cloner}"),
     ],
     [
         InlineKeyboardButton(
