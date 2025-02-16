@@ -7,6 +7,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from telegram import __version__ as lver
 from telethon import __version__ as tver
+from pytgcalls import __version__ as pytver
 from pyrogram import filters
 from pyrogram.types import Message
 import config
@@ -94,7 +95,7 @@ async def restart(client, m: Message):
     await accha.edit("ᴅɪɴɢ ᴅᴏɴɢ ꨄ︎ ᴀʟɪᴠɪɴɢ..")
 
     await accha.delete()
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(1)
     
     umm = await m.reply_sticker(
         "CAACAgUAAxkDAAJHbmLuy2NEfrfh6lZSohacEGrVjd5wAAIOBAACl42QVKnra4sdzC_uKQQ"
@@ -103,7 +104,7 @@ async def restart(client, m: Message):
     owner=await app.get_users(OWNER_ID)
     await m.reply_photo(
         PING_IMG_URL,
-        caption=f"""ʜᴇʏ, ɪ ᴀᴍ {app.mention}
+        caption=f"""» ʜᴇʏ, ɪ ᴀᴍ {app.mention}
    ━━━━━━━━━━━━━━━━━━━
   » ᴍʏ ᴏᴡɴᴇʀ : {owner.mention()}
   
@@ -114,6 +115,8 @@ async def restart(client, m: Message):
   » ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ : {pver}
   
   » ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ : {pyver()}
+  
+  » ᴘʏ-ᴛɢᴄᴀʟʟꜱ : {pytver}
    ━━━━━━━━━━━━━━━━━━━""",
         reply_markup=InlineKeyboardMarkup(Xteam)
     )
