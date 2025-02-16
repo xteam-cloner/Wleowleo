@@ -97,5 +97,9 @@ async def bot_stats(client, CallbackQuery, _):
     served_users = len(await get_served_users())
     
     text = ("<b><u>{0} sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ :</u></b>\n\n<b>ᴍᴏᴅᴜʟᴇs :</b> <code>{1}</code>\n<b>ᴘʟᴀᴛғᴏʀᴍ :</b> <code>{2}</code>\n<b>ʀᴀᴍ :</b> <code>{3}</code>\n<b>ᴘʜʏsɪᴄᴀʟ ᴄᴏʀᴇs :</b> <code>{4}</code>\n<b>ᴛᴏᴛᴀʟ ᴄᴏʀᴇs :</b> <code>{5}</code>\n<b>ᴄᴘᴜ ғʀᴇǫᴜᴇɴᴄʏ :</b> <code>{6}</code>\n\n<b>ᴘʏᴛʜᴏɴ :</b> <code>{7}</code>\n<b>ᴘʏʀᴏɢʀᴀᴍ :</b> <code>{8}</code>\n<b>ᴘʏ-ᴛɢᴄᴀʟʟs :</b> <code>{9}</code>\n\n<b>sᴛᴏʀᴀɢᴇ ᴀᴠᴀɪʟᴀʙʟᴇ :</b> <code>{10} ɢɪʙ</code>\n<b>sᴛᴏʀᴀɢᴇ ᴜsᴇᴅ :</b> <code>{11} ɢɪʙ</code>\n<b>sᴛᴏʀᴀɢᴇ ʟᴇғᴛ :</b> <code>{12} ɢɪʙ</code>\n\n<b>sᴇʀᴠᴇᴅ ᴄʜᴀᴛs :</b> <code>{13}</code>\n<b>sᴇʀᴠᴇᴅ ᴜsᴇʀs :</b> <code>{14}</code>\n<b>ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs :</b> <code>{15}</code>\n<b>sᴜᴅᴏ ᴜsᴇʀs :</b> <code>{16}</code>\n\n<b>ᴛᴏᴛᴀʟ ᴅʙ sɪᴢᴇ :</b> <code>{17} ᴍʙ</code>\n<b>ᴛᴏᴛᴀʟ ᴅʙ sᴛᴏʀᴀɢᴇ :</b> <code>{18} ᴍʙ</code>\n<b>ᴛᴏᴛᴀʟ ᴅʙ ᴄᴏʟʟᴇᴄᴛɪᴏɴs :</b> <code>{19}</code>\n<b>ᴛᴏᴛᴀʟ ᴅʙ ᴋᴇʏs :</b> <code>{20}</code>")
-        await CallbackQuery.answer(text, show_alert=True)
-    
+        med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
+    try:
+        await CallbackQuery.edit_message_media(media=med)
+    except MessageIdInvalid:
+        await CallbackQuery.message.reply_photo(
+            photo=config.STATS_IMG_URL, caption=text)
