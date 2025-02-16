@@ -88,23 +88,22 @@ Xteam = [
 
 
 @app.on_message(filters.command("alive"))
-async def restart(client, m: Message):
+async def alive(client, m: Message):
     await m.delete()
     accha = await m.reply("⚡")
     await asyncio.sleep(1)
     await accha.edit("ᴅɪɴɢ ᴅᴏɴɢ ꨄ︎ ᴀʟɪᴠɪɴɢ..")
-
-    await accha.delete()
     await asyncio.sleep(1)
-    
+    await accha.delete()
     umm = await m.reply_sticker(
         "CAACAgUAAxkDAAJHbmLuy2NEfrfh6lZSohacEGrVjd5wAAIOBAACl42QVKnra4sdzC_uKQQ"
     )
+    await asyncio.sleep(1)
     await umm.delete()
     owner=await app.get_users(OWNER_ID)
     await m.reply_photo(
         PING_IMG_URL,
-        caption=f"""» ʜᴇʏ, ɪ ᴀᴍ {app.mention}
+        caption=f""" » ʜᴇʏ, ɪ ᴀᴍ {app.mention}
    ━━━━━━━━━━━━━━━━━━━
   » ᴍʏ ᴏᴡɴᴇʀ : {owner.mention()}
   
@@ -116,7 +115,7 @@ async def restart(client, m: Message):
   
   » ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ : {pyver()}
   
-  » ᴘʏ-ᴛɢᴄᴀʟʟꜱ : {pytver}
+  » ᴘʏ-ᴛɢᴄᴀʟʟꜱ ᴠᴇʀꜱɪᴏɴ : {pytver}
    ━━━━━━━━━━━━━━━━━━━""",
         reply_markup=InlineKeyboardMarkup(Xteam)
     )
