@@ -6,6 +6,8 @@ from pyrogram import __version__ as pyrover
 from pyrogram import filters
 from pyrogram.errors import MessageIdInvalid
 from pyrogram.types import InputMediaPhoto, Message
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pytgcalls.__version__ import __version__ as pytgver
 
 import config
@@ -40,13 +42,10 @@ async def home_stats(client, CallbackQuery, _):
     )
 
 
-@app.on_callback_query(filters.regex("TopOverall") & ~BANNED_USERS)
-@languageCB
-async def overall_stats(client, CallbackQuery, _):
-    await CallbackQuery.answer()
-    upl = back_stats_buttons(_)
-    
-    await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
+@app.on_callback_query()
+async def callback_query(client, callback_query):
+    if callback_query.data == "TopOverall":
+        await callback_query.message.edit(_["gstats_1"].format(app.mention))
     
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
@@ -73,17 +72,10 @@ async def overall_stats(client, CallbackQuery, _):
     )
 
 
-@app.on_callback_query(filters.regex("bot_stats_sudo"))
-@languageCB
-async def bot_stats(client, CallbackQuery, _):
-    if CallbackQuery.from_user.id not in SUDOERS:
-        return await CallbackQuery.answer(_["gstats_4"], show_alert=True)
-    upl = back_stats_buttons(_)
-    try:
-        await CallbackQuery.answer()
-    except:
-        pass
-    await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
+@app.on_callback_query()
+async def callback_query(client, callback_query):
+    if callback_query.data == "bot_stats_sudo":
+        await callback_query.message.reply(_["gstats_1"].format(app.mention))
     p_core = psutil.cpu_count(logical=False)
     t_core = psutil.cpu_count(logical=True)
     ram = str(round(psutil.virtual_memory().total / (1024.0**3))) + " ɢʙ"
