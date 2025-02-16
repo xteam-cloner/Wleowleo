@@ -36,7 +36,7 @@ async def stats_global(client, message: Message, _):
 
 @app.on_callback_query(filters.regex(PING_CALLBACK))
 async def overall_stats(client, callback_query: CallbackQuery):
-    await CallbackQuery.edit_message_text(["gstats_1"].format(app.mention))
+    response = await message.reply_text(["gstats_1"].format(app.mention))
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
     
@@ -53,9 +53,9 @@ async def overall_stats(client, callback_query: CallbackQuery):
     )
     med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
     try:
-        await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
+        await message.edit_media(media=med, reply_markup=upl)
     except MessageIdInvalid:
-        await CallbackQuery.message.reply_photo(
+        await message.reply_photo(
             photo=config.STATS_IMG_URL, caption=text, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍 Check Ping", callback_data=PING_CALLBACK)]]
         ),
         )
