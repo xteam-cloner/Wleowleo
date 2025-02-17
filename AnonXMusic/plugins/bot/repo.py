@@ -6,9 +6,9 @@ from AnonXMusic import app
 start_txt = """
 ✦ ʜᴇʏ ᴛʜᴇʀᴇ, ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ᴜʜʜ !
 
-̶꯭꯭⎯̶꯭̽❝꯭꯭♥️xᴛᴇᴀᴍ ᴍᴜsɪᴄ 🥀🤍꯭᪳𝆺̶꯭𝅥⎯̶̶꯭̽
+̶꯭꯭⎯̶꯭̽❝꯭꯭♥️ xᴛᴇᴀᴍ ᴍᴜsɪᴄ 🤍꯭᪳𝆺̶꯭𝅥⎯̶̶꯭̽
 
-❅ ɪғ ʏᴏᴜ ᴡᴀɴᴛ 🇹‌𝗵𝗮𝗻𝘂 ʙᴏᴛ ʀᴇᴘᴏ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʀᴇᴘᴏ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴍʏ support.
+❅ ɪғ ʏᴏᴜ ᴡᴀɴᴛ xᴛᴇᴀᴍ ʙᴏᴛ ʀᴇᴘᴏ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʀᴇᴘᴏ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴍʏ support.
 """
 
 
@@ -18,15 +18,15 @@ start_txt = """
 async def start(_, msg):
     buttons = [
         [
-          InlineKeyboardButton("owner", url="https://t.me/teamx-clone"),
-          InlineKeyboardButton("repo", url="https://t.me/teamx-clone"),
+          InlineKeyboardButton("owner", url="https://t.me/teamx_clone"),
+          InlineKeyboardButton("repo", url="https://t.me/teamx_clone"),
           ],
     ]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await msg.reply_photo(
-        photo="https://envs.sh/S7U.jpg",
+        photo="https://files.catbox.moe/n1yg7u.jpg",
         caption=start_txt,
         reply_markup=reply_markup
     )
