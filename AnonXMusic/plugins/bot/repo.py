@@ -6,7 +6,7 @@ from AnonXMusic import app
 start_txt = """
 ✦ ʜᴇʏ ᴛʜᴇʀᴇ, ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ᴜʜʜ !
 
-̶꯭꯭⎯̶꯭̽❝꯭꯭💗꯭꯭꯭꯭᭄꯭꯭꯭🇹‌𝗵𝗮𝗻𝘂🇽‌𝗺𝘂𝘀𝗶𝗰🤍꯭᪳𝆺̶꯭𝅥⎯̶̶꯭̽
+̶꯭꯭⎯̶꯭̽❝꯭꯭♥️xᴛᴇᴀᴍ ᴍᴜsɪᴄ 🥀🤍꯭᪳𝆺̶꯭𝅥⎯̶̶꯭̽
 
 ❅ ɪғ ʏᴏᴜ ᴡᴀɴᴛ 🇹‌𝗵𝗮𝗻𝘂 ʙᴏᴛ ʀᴇᴘᴏ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʀᴇᴘᴏ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴍʏ support.
 """
@@ -18,8 +18,8 @@ start_txt = """
 async def start(_, msg):
     buttons = [
         [
-          InlineKeyboardButton("owner", url="https://t.me/DFSChinnaop"),
-          InlineKeyboardButton("repo", url="https://t.me/Thanuhindi_op"),
+          InlineKeyboardButton("owner", url="https://t.me/teamx-clone"),
+          InlineKeyboardButton("repo", url="https://t.me/teamx-clone"),
           ],
     ]
     
