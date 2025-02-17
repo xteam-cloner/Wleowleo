@@ -40,18 +40,45 @@ GETIMG_API_URL = "https://api.getimg.ai/v1/essential-v2/text-to-image"
 
 # Function to generate an image using Getimg API
 def generate_image(prompt):
-    headers = {
-        "Authorization": f"Bearer {GETIMG_API_KEY}",
-        "Content-Type": "application/json"
-    }
+    curl --request GET \
+     --url https://api.getimg.ai/v1/models \
+     --header 'accept: application/json'
 
     # Request payload to send to Getimg API
-    data = {
-        "prompt": prompt,
-        "style": "artistic",  # You can change the style based on the available options
-        "width": 512,
-        "height": 512
-    }
+response = [
+  {
+    "id": "stable-diffusion-v1-5",
+    "name": "Stable Diffusion v1.5",
+    "family": "stable-diffusion",
+    "pipelines": [
+      "text-to-image",
+      "image-to-image",
+      "controlnet"
+    ],
+    "base_resolution": {
+      "width": 512,
+      "height": 512
+    },
+    "price": 0.00045,
+    "created_at": "2023-05-23T18:51:22.297Z"
+  },
+  {
+    "id": "realistic-vision-v1-3",
+    "name": "Realistic Vision v1.3",
+    "family": "stable-diffusion",
+    "pipelines": [
+      "text-to-image",
+      "image-to-image",
+      "controlnet"
+    ],
+    "base_resolution": {
+      "width": 512,
+      "height": 512
+    },
+    "price": 0.00045,
+    "created_at": "2023-05-23T18:51:22.297Z"
+  }
+    ]
 
     # Make the API request
     response = requests.post(GETIMG_API_URL, json=data, headers=headers)
