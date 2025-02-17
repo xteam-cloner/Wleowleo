@@ -33,6 +33,8 @@ async def start_pm(client, message: Message, _):
         if name[0:4] == "help":
             keyboard = help_pannel(_)
             await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
+            await asyncio.sleep(1)
+            await message.delete()
             return await message.reply_video(
                 video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
