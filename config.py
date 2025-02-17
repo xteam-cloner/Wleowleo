@@ -84,7 +84,7 @@ LOG = 2
 LOG_FILE_NAME = "VIPlogs.txt"
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://telegra.ph/file/8d7b534e34e13316a7dd2.jpg"
+    "START_IMG_URL", "https://files.catbox.moe/gw442z.jpg"
 )
 PING_IMG_URL = getenv(
     "PING_IMG_URL", "https://telegra.ph/file/8d7b534e34e13316a7dd2.jpg"
