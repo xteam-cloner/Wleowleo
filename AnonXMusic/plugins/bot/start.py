@@ -35,8 +35,8 @@ async def start_pm(client, message: Message, _):
             await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
             await asyncio.sleep(1)
             await message.delete()
-            return await message.reply_video(
-                video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
+            return await message.reply_photo(
+                photo="https://files.catbox.moe/gw442z.jpg",
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
@@ -88,8 +88,8 @@ async def start_pm(client, message: Message, _):
     else:
         out = private_panel(_)
         await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
-        await message.reply_video(
-            video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
+        await message.reply_photo(
+            photo="https://files.catbox.moe/gw442z.jpg",
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
@@ -105,8 +105,8 @@ async def start_pm(client, message: Message, _):
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
-    await message.reply_video(
-        video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
+    await message.reply_photo(
+        photo="https://files.catbox.moe/gw442z.jpg",
         caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
     )
@@ -140,8 +140,8 @@ async def welcome(client, message: Message):
                     return await app.leave_chat(message.chat.id)
 
                 out = start_panel(_)
-                await message.reply_video(
-                    video="https://telegra.ph/file/d2532972423ce5c4b632e.mp4",
+                await message.reply_photo(
+                    photo="https://files.catbox.moe/gw442z.jpg",
                     caption=_["start_3"].format(
                         message.from_user.first_name,
                         app.mention,
