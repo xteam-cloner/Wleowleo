@@ -9,7 +9,7 @@ from pyrogram.types import Message
 from pyrogram.types import(InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message)
 from logging import getLogger
 from config import LOG_GROUP_ID
-from Auput import app
+from AnonXMusic import app
 
 LOGGER = getLogger(__name__)
 
