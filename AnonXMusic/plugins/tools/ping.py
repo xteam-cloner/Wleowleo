@@ -103,7 +103,7 @@ async def alive(client, m: Message):
     owner=await app.get_users(OWNER_ID)
     await m.reply_photo(
         PING_IMG_URL,
-        caption=f""" » ʜᴇʏ, ɪ ᴀᴍ {app.mention}
+        caption=f"""<blockquote>» ʜᴇʏ, ɪ ᴀᴍ {app.mention}
    ━━━━━━━━━━━━━━━━━━━
   » ᴍʏ ᴏᴡɴᴇʀ : {owner.mention()}
   
@@ -116,7 +116,7 @@ async def alive(client, m: Message):
   » ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ : {pyver()}
   
   » ᴘʏ-ᴛɢᴄᴀʟʟꜱ ᴠᴇʀꜱɪᴏɴ : {pytver}
-   ━━━━━━━━━━━━━━━━━━━""",
+   ━━━━━━━━━━━━━━━━━━━</blockquote>""",
         reply_markup=InlineKeyboardMarkup(Xteam)
     )
 
