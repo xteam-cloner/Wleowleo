@@ -3,7 +3,7 @@ from typing import Union
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 
-from AnonXMusic import userbot as app
+from AnonXMusic import app
 from AnonXMusic.utils import help_pannel
 from AnonXMusic.utils.database import get_lang
 from AnonXMusic.utils.decorators.language import LanguageStart, languageCB
@@ -50,7 +50,7 @@ async def help_com_group(client, message: Message, _):
     keyboard = private_help_panel(_)
     await message.reply_photo(
         video="https://files.catbox.moe/n90od9.jpg",
-        caption=_["help_2"], reply_markup=InlineKeyboardMarkup(keyboard)
+        caption=_["help_2"], reply_markup=InlineKeyboardMarkup(help_back_markup)
     )
 
 @app.on_callback_query(filters.regex("help_callback") & ~BANNED_USERS)
