@@ -6,7 +6,7 @@ from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import *
 from pyrogram.types import Message
-from pyrogram.types import(InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message)
+from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message)
 from logging import getLogger
 from config import LOGGER_ID
 from AnonXMusic import app
@@ -183,3 +183,16 @@ Username ✧ @{user.username}
     except Exception as e:
         pass
 
+
+@app.on_message(filters.new_chat_members & filters.group, group=-1)
+async def bot_wel(_, message):
+    for u in message.new_chat_members:
+        if u.id == app.me.id:
+            await app.send_message(LOG_GROUP_ID, f"""
+**NEW GROUP
+➖➖➖➖➖➖➖➖➖➖➖➖
+NAME: {message.chat.title}
+ID: {message.chat.id}
+USERNAME: @{message.chat.username}
+➖➖➖➖➖➖➖➖➖➖➖➖**
+""")
