@@ -97,7 +97,7 @@ async def join_watcher(_, message):
                 f"📈 ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs: {count}\n"
                 f"🤔 ᴀᴅᴅᴇᴅ ʙʏ: {message.from_user.mention}"
             )
-            await app.send_photo(LOG_GROUP_ID, photo=random.choice(uputlogo), caption=msg, reply_markup=InlineKeyboardMarkup([
+            await app.send_photo(LOGGER_ID, photo=random.choice(uputlogo), caption=msg, reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton(f"Sᴇᴇ ɢʀᴏᴜᴘ👀", url=f"{link}")]
          ]))
 
