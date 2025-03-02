@@ -6,7 +6,7 @@ from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import *
 from pyrogram.types import Message
-from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message)
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message
 from logging import getLogger
 from config import LOGGER_ID
 from AnonXMusic import app
