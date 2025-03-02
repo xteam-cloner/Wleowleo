@@ -81,7 +81,7 @@ confirmer = {}
 TEMP_DB_FOLDER = "tempdb"
 YTDOWNLOADER = 1
 LOG = 2
-LOG_FILE_NAME = "VIPlogs.txt"
+LOG_FILE_NAME = "Xteamlogs.txt"
 
 START_IMG_URL = getenv(
     "START_IMG_URL", "https://files.catbox.moe/gw442z.jpg"
