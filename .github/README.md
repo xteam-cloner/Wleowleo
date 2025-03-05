@@ -1,4 +1,4 @@
-<h1 align ="center"><img src="https://readme-typing-svg.herokuapp.com?color=F778A1&width=350&lines=✨+🦋🇹‌𝗵𝗮𝗻𝘂+🇽‌+𝗺𝘂𝘀𝗶𝗰]🖤+🥀"></b></h1>
+<h1 align ="center"><img src="https://readme-typing-svg.herokuapp.com?color=F778A1&width=350&lines=✨+🦋 xteam+🇽‌+𝗺𝘂𝘀𝗶𝗰]🖤+🥀"></b></h1>
 
 ★ 𝙷𝙴𝚁𝙾𝙺𝚄 + 𝚅𝙿𝚂 ★
 </h2>
